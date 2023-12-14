@@ -1,18 +1,19 @@
 # FINAL PROJECT
 
-**< Brain Tumor Classification using by method in scikit learn package >**
+> **Brain Tumor Classification using by method in scikit learn package**
 
 *my Evaluation environment*
 
->Numpy 버전: 1.26.2
+>Numpy version: 1.26.2
 >
->scikit learn 버전: 1.3.2
+>scikit learn version: 1.3.2
 >
->scikit image 버전: 0.22.0
+>scikit image version: 0.22.0
 
 ## Using model
-> K-Nearest Neighbors(KNN): 
-
+> **Support Vector Machine, SVM** : 지도 학습(Supervised learning) 알고리즘 중 하나로 분류(Classification)와 회귀(Regression) 문제에 사용되는 강력하고 널리 쓰이는 알고리즘
+>
+> - 작동원리: 
 ## training model process
 
 **Optimize hyper-parameters**
@@ -26,16 +27,22 @@
     > 하이퍼파라미터 그리드 생성 🠒 모델 훈련 및 검증 🠒 최적 하이퍼 파라미터 선택 🠒 모델 평가
     >
 ```
-knn = KNeighborsClassifier()
+# SVM 모델
+svm = SVC()
+
+# 탐색할 하이퍼파라미터 그리드
 param_grid = {
-    'n_neighbors': [1, 3, 5],# 이웃 수에 대한 후보 값
-    'weights' : ['uniform', 'distance'],
-    'metric': ['euclidean', 'minkowski'],
-    'algorithm': ['auto']
+    'C': [15, 20, 25],  # C 값 후보
+    'kernel': ['poly', 'sigmoid'],  # 커널 후보
+    'gamma': ['scale', 0.1, 1, 10],  # gamma 값 후보
+    'degree' : [2,3,4],
+    'coef0' : [0, 0.5, 1, 2]
 }
-grid_search = GridSearchCV(knn, param_grid, cv=5, scoring='accuracy')
+
+# Grid Search를 통해 최적의 하이퍼파라미터 탐색
+grid_search = GridSearchCV(estimator=svm, param_grid=param_grid, cv=3, scoring='accuracy')
 grid_search.fit(X_train, y_train)
-# 최적의 하이퍼파라미터 및 정확도 출력
+
 print("최적의 하이퍼파라미터:", grid_search.best_params_)
 print("최적의 교차 검증 점수 (평균 정확도): {:.2f}".format(grid_search.best_score_))
 
