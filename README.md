@@ -31,6 +31,16 @@
 **Optimize hyper-parameters**
 
   - **model's hyper-parameters**
+    >```knn.get_params()```를 작동시키면 knn의 하이퍼파라미터를 알 수 있다
+    >
+    >출력결과: {'algorithm': 'auto',
+ 'leaf_size': 30,
+ 'metric': 'minkowski',
+ 'metric_params': None,
+ 'n_jobs': None,
+ 'n_neighbors': 5,
+ 'p': 2,
+ 'weights': 'uniform'}
 
   - **grid search**
 
