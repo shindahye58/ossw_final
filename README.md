@@ -1,5 +1,7 @@
 # FINAL PROJECT
 
+*20210858 신다혜*
+
 > **Brain Tumor Classification using by method in scikit learn package**
 
 *my Evaluation environment*
@@ -9,6 +11,7 @@
 >scikit learn version: 1.3.2
 >
 >scikit image version: 0.22.0
+
 
 ## Using model
 > **K-Nearest Neighbors(KNN)** : 지도 학습(Supervised Learning) 알고리즘 중 하나로, 데이터 포인트들 간의 거리를 기반으로 하는 분류(Classification) 또는 회귀(Regression) 작업에 사용되는 간단하면서도 유용한 알고리즘
